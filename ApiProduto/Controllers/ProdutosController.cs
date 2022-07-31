@@ -35,6 +35,12 @@ namespace ApiProduto.Controllers
             return await _produto.ObterProdutos();
         }
 
+        // Get: Api/Produtos
+        [HttpGet("PorNome")]
+        public async Task<IEnumerable<Produto>> GetProdutosPorNome(string nome)
+        {
+            return await _produto.ObterProdutosPorNome(nome);
+        }
         // Get: Api/Produto/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Produto>> GetProduto(int id)

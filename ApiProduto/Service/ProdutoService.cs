@@ -16,11 +16,8 @@ namespace ApiProduto.Services
             _context = context;
         }
         public async Task<Produto> ObterProduto(int id) => await _context.Produtos.FindAsync(id);
-
         public async Task<IEnumerable<Produto>> ObterProdutos() => await _context.Produtos.ToListAsync();
-
-        public async Task<IEnumerable<Produto>> ObterProdutosPorNome(string nome)
-            => await _context.Produtos.Where(n => n.Nome.Contains(nome)).ToListAsync();
+        public async Task<IEnumerable<Produto>> ObterProdutosPorNome(string nome) => await _context.Produtos.Where(n => n.Nome.Contains(nome)).ToListAsync();
         public async Task CriarProduto(Produto produto)
         {
             _context.Produtos.Add(produto);
